@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "viper"
+version = "0.1.0"
+description = "CLI para orquestracao local de repositorios com Typer e Docker Compose"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "typer>=0.12.3",
+  "rich>=13.7.1",
+  "PyYAML>=6.0.1",
+  "tomli-w>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.2",
+]
+
+[project.scripts]
+viper = "viper.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["viper*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
